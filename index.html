@@ -287,6 +287,31 @@
             .hero h1 { font-size: 3.5rem; }
             .nav-links { display: none; } /* Simplified for demo */
         }
+		/* Music Button Style */
+#music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--lemon); /* Matches your theme */
+    color: var(--primary-black);
+    border: 3px solid #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 9999; /* Ensures it stays on top */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#music-btn:hover {
+    transform: scale(1.1); /* Grows slightly when hovered */
+    background-color: var(--white);
+}
     </style>
 </head>
 <body>
@@ -401,6 +426,27 @@
                 });
             });
         });
+		var music = document.getElementById("bg-music");
+var btn = document.getElementById("music-btn");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = '<i class="fas fa-pause"></i> PAUSE VIBE';
+        btn.style.backgroundColor = "#FF6B6B"; // Changes color to Peach when playing
+    } else {
+        music.pause();
+        btn.innerHTML = '<i class="fas fa-play"></i> PLAY VIBE';
+        btn.style.backgroundColor = "#FCEE21"; // Changes back to Lemon when paused
+    }
+}
     </script>
+	<audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-btn" onclick="toggleMusic()">
+    <i class="fas fa-play"></i> PLAY VIBE
+</button>
 </body>
 </html>
