@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOM+ Isotonic Vitamin C | Hausboom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-black: #111111;
+            --lemon: #FCEE21;
+            --peach: #FF6B6B;
+            --lychee: #4CC9F0;
+            --orange: #F7931E;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(17, 17, 17, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid #333;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--white);
+            font-style: italic;
+        }
+
+        .logo span { color: var(--lemon); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--lychee); }
+
+        .cta-btn {
+            background-color: var(--white);
+            color: var(--primary-black);
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--lemon);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle, #2a2a2a 0%, #111111 100%);
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px #333;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--lemon);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        /* Hero Image - The Group Shot */
+        .hero-img-container {
+            margin-top: 20px;
+        }
+        
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- Running Banner --- */
+        .marquee {
+            background: var(--lemon);
+            color: var(--primary-black);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            transform: rotate(-2deg) scale(1.05);
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            z-index: 5;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-family: 'Bebas Neue';
+            font-size: 2rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Flavors Section --- */
+        .flavors {
+            padding: 100px 5%;
+            background: var(--white);
+            color: var(--primary-black);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 60px;
+            color: var(--primary-black);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: #f9f9f9;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            max-width: 180px; /* Adjusted for can aspect ratio */
+            height: auto;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-weight: 600;
+            color: #666;
+        }
+
+        /* Specific Flavor Colors */
+        .card.lemon:hover { border-color: var(--lemon); background: #ffffe0; }
+        .card.peach:hover { border-color: var(--peach); background: #fff0f0; }
+        .card.lychee:hover { border-color: var(--lychee); background: #e0faff; }
+        .card.orange:hover { border-color: var(--orange); background: #fff4e0; }
+
+        /* --- Benefits Section --- */
+        .benefits {
+            padding: 80px 5%;
+            background-color: var(--primary-black);
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .benefit-item i {
+            font-size: 3rem;
+            color: var(--lemon);
+            margin-bottom: 20px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: 'Bebas Neue';
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            padding: 50px 5%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .socials {
+            margin-bottom: 20px;
+        }
+
+        .socials a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover { color: var(--lemon); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BOOM<span>+</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#flavors">Flavours</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+        </ul>
+        <a href="#" class="cta-btn">Buy Now</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ISOTONIC<br><span>VITAMIN C</span></h1>
+            <p>Hydrate, Energize, and Recover with the new Boom+ Series.</p>
+            <a href="#flavors" class="cta-btn" style="background: var(--lemon); border:none;">Explore Flavours</a>
+            
+            <div class="hero-img-container">
+                <img src="LOGO.png" alt="lemon.png" class="hero-img">
+                </div>
+        </div>
+    </section>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            BOOM+ ISOTONIC • 300MG VITAMIN C • LOW SUGAR • NO COLOURING • ELECTROLYTE DRINK • BOOM+ ISOTONIC • 300MG VITAMIN C •
+        </div>
+    </div>
+
+    <section class="flavors" id="flavors">
+        <h2 class="section-title">Pick Your Vibe</h2>
+        <div class="grid">
+            
+            <div class="card lemon">
+                <img src="lemon.png" alt="Lemon Flavor">
+                <h3>Lemon</h3>
+                <p>Zesty & Refreshing</p>
+                <small>300mg Vitamin C</small>
+            </div>
+
+            <div class="card lychee">
+                <img src="watermelon.png" alt="Watermelon Lychee Flavor">
+                <h3>Watermelon Lychee</h3>
+                <p>Sweet & Exotic</p>
+                <small>18kcal / 100ml</small>
+            </div>
+
+            <div class="card peach">
+                <img src="peach.png" alt="White Peach Flavor">
+                <h3>White Peach</h3>
+                <p>Smooth & Aromatic</p>
+                <small>Isotonic Formula</small>
+            </div>
+
+            <div class="card orange">
+                <img src="orange.png" alt="Orange Flavor">
+                <h3>Orange</h3>
+                <p>Citrus Blast</p>
+                <small>Electrolyte Boost</small>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <h2 class="section-title" style="color:white">What's Inside?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <i class="fas fa-capsules"></i>
+                <h4>300mg Vitamin C</h4>
+                <p>Boosts immunity per 325ml serving.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-bolt"></i>
+                <h4>Isotonic</h4>
+                <p>Fast hydration and electrolyte replenishment.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-leaf"></i>
+                <h4>Low Sugar</h4>
+                <p>Only ~4.6g sugar per 100ml. Guilt-free.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-tint"></i>
+                <h4>No Colouring</h4>
+                <p>Pure flavor without artificial dyes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">BOOM<span>+</span></div>
+        <div class="socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="color:#666; font-size: 0.8rem;">&copy; created by adam danish, khadijah azidin, hasrul haikal, akram hafadz.</p>
+		<p from fskm uitmctkt </p>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
