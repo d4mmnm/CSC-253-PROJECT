@@ -287,31 +287,32 @@
             .hero h1 { font-size: 3.5rem; }
             .nav-links { display: none; } /* Simplified for demo */
         }
-		/* Music Button Style */
-#music-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--lemon); /* Matches your theme */
-    color: var(--primary-black);
-    border: 3px solid #fff;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    cursor: pointer;
-    z-index: 9999; /* Ensures it stays on top */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        
+        /* Music Button Style */
+        #music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--lemon); /* Matches your theme */
+            color: var(--primary-black);
+            border: 3px solid #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 9999; /* Ensures it stays on top */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-#music-btn:hover {
-    transform: scale(1.1); /* Grows slightly when hovered */
-    background-color: var(--white);
-}
+        #music-btn:hover {
+            transform: scale(1.1); /* Grows slightly when hovered */
+            background-color: var(--white);
+        }
     </style>
 </head>
 <body>
@@ -333,8 +334,8 @@
             <a href="#flavors" class="cta-btn" style="background: var(--lemon); border:none;">Explore Flavours</a>
             
             <div class="hero-img-container">
-                <img src="LOGO.png" alt="lemon.png" class="hero-img">
-                </div>
+                <img src="LOGO.png" alt="All Boom Flavors" class="hero-img">
+            </div>
         </div>
     </section>
 
@@ -343,6 +344,17 @@
             BOOM+ ISOTONIC • 300MG VITAMIN C • LOW SUGAR • NO COLOURING • ELECTROLYTE DRINK • BOOM+ ISOTONIC • 300MG VITAMIN C •
         </div>
     </div>
+
+    <section style="background-color: var(--primary-black); padding: 50px 5%; text-align: center;">
+        <h2 class="section-title" style="color: var(--white); margin-bottom: 30px;">Watch the Hype</h2>
+        
+        <div style="max-width: 900px; margin: 0 auto; position: relative;">
+            <video width="100%" controls style="border-radius: 20px; border: 2px solid var(--lemon); box-shadow: 0 0 30px rgba(252, 238, 33, 0.3);">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
 
     <section class="flavors" id="flavors">
         <h2 class="section-title">Pick Your Vibe</h2>
@@ -413,8 +425,16 @@
             <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
         <p style="color:#666; font-size: 0.8rem;">&copy; created by adam danish, khadijah azidin, hasrul haikal, akram hafadz.</p>
-		<p from fskm uitmctkt </p>
+        <p style="color:#666; font-size: 0.8rem; margin-top:5px;">from FSKM UiTMCTKKT</p>
     </footer>
+
+    <audio id="bg-music" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-btn" onclick="toggleMusic()">
+        <i class="fas fa-play"></i> PLAY VIBE
+    </button>
 
     <script>
         // Simple smooth scrolling for navigation
@@ -426,27 +446,22 @@
                 });
             });
         });
-		var music = document.getElementById("bg-music");
-var btn = document.getElementById("music-btn");
 
-function toggleMusic() {
-    if (music.paused) {
-        music.play();
-        btn.innerHTML = '<i class="fas fa-pause"></i> PAUSE VIBE';
-        btn.style.backgroundColor = "#FF6B6B"; // Changes color to Peach when playing
-    } else {
-        music.pause();
-        btn.innerHTML = '<i class="fas fa-play"></i> PLAY VIBE';
-        btn.style.backgroundColor = "#FCEE21"; // Changes back to Lemon when paused
-    }
-}
+        // Music Functionality
+        var music = document.getElementById("bg-music");
+        var btn = document.getElementById("music-btn");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = '<i class="fas fa-pause"></i> PAUSE VIBE';
+                btn.style.backgroundColor = "#FF6B6B"; // Changes color to Peach when playing
+            } else {
+                music.pause();
+                btn.innerHTML = '<i class="fas fa-play"></i> PLAY VIBE';
+                btn.style.backgroundColor = "#FCEE21"; // Changes back to Lemon when paused
+            }
+        }
     </script>
-	<audio id="bg-music" loop>
-    <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<button id="music-btn" onclick="toggleMusic()">
-    <i class="fas fa-play"></i> PLAY VIBE
-</button>
 </body>
 </html>
